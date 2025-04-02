@@ -37,6 +37,15 @@ class Task:
             setattr(self, key, value)
         self.updatedAt = datetime.now()
         
+    def __dict__(self):
+        return {
+            '_id': self._id,
+            'description': self.description,
+            'status': self.status,
+            'createdAt': self.createdAt.isoformat(),
+            'updatedAt': self.updatedAt.isoformat()
+        }
+        
         
         
 if __name__ == "__main__":

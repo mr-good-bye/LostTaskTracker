@@ -9,6 +9,7 @@ class Storage:
         self.pwd = pwd
         os.makedirs(self.pwd, exist_ok=True)
         self.tasks = {}
+        self.last_id = -1
         
     def load(self) -> dict[int, Task]:
         _tasksf = os.listdir(self.pwd)
@@ -24,10 +25,11 @@ class Storage:
             )
             _tasks[task._id] = task
         self.tasks = _tasks
+        self.last_id = max([-1] + [i for i in list(_tasks.keys()) if isinstance(i, int)])
         return _tasks
     
     def save(self):
         for task in self.tasks.values():
-            json.dump(task.__dict__, open(os.path.join(self.pwd, f"{task._id}.json"), 'w'))
+            json.dump(task.__dict__(), open(os.path.join(self.pwd, f"{task._id}.json"), 'w'))
         
     
