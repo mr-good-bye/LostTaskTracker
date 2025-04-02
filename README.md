@@ -10,23 +10,24 @@ Task tracker is a project used to track and manage your tasks. A simple command 
 ```sh
 
 # Adding a new task
-task-cli add "Buy groceries"
+main add "Buy groceries"
 
 # Updating and deleting tasks
-task-cli update 1 "Buy groceries and cook dinner"
-task-cli delete 1
+main update 1 "Buy groceries and cook dinner"
+main delete 1
 
 # Marking a task as in progress or done
-task-cli mark-in-progress 1
-task-cli mark-done 1
+main mark-in-progress 1
+main mark-done 1
+main mark-to-do 1
 
 # Listing all tasks
-task-cli list
+main list
 
 # Listing tasks by status
-task-cli list done
-task-cli list todo
-task-cli list in-progress
+main list done
+main list todo
+main list in-progress
 ```
 
 
